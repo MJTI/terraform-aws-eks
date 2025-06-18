@@ -12,8 +12,7 @@ resource "aws_eks_cluster" "this" {
     endpoint_private_access = false
     endpoint_public_access  = true
 
-    ## subnet_ids = module.vpc.aws_subnet_private[*].id
-    subnet_ids = var.aws_subnet_private[*].id
+    subnet_ids = var.aws_subnet_private_ids[*]
   }
 
 

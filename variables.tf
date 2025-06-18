@@ -13,6 +13,6 @@ variable "project" {
   type        = string
 }
 
-variable "aws_subnet_private" {
+variable "aws_subnet_private_ids" {
   description = "The Private Subnets"
   }
