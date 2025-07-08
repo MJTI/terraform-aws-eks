@@ -15,4 +15,5 @@ variable "project" {
 
 variable "aws_subnet_private_ids" {
   description = "The Private Subnets"
-  }
+  type = list(string)
+}
