@@ -1,3 +1,7 @@
+data "aws_kms_key" "mprofile" {
+  key_id = "eks/mprofile/us-east-1"
+}
+
 resource "aws_eks_cluster" "this" {
   name     = "${var.env}-${var.project}-eks-cluster"
   role_arn = aws_iam_role.eks-cluster.arn
@@ -13,6 +17,13 @@ resource "aws_eks_cluster" "this" {
     endpoint_public_access  = true
 
     subnet_ids = var.aws_subnet_private_ids[*]
+  }
+
+  encryption_config {
+    provider {
+      key_arn = data.aws_kms_key.mprofile.arn
+    }
+    resources = [ "secrets" ]
   }
 
 
