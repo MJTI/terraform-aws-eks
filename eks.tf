@@ -1,5 +1,5 @@
 data "aws_kms_key" "mprofile" {
-  key_id = "eks/mprofile/us-east-1"
+  key_id = "alias/eks/mprofile/us-east-1"
 }
 
 resource "aws_eks_cluster" "this" {
