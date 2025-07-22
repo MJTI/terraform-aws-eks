@@ -1,5 +1,5 @@
 data "aws_eks_cluster" "eks-cluster" {
-    name = aws_eks_cluster.this.name
+  name = aws_eks_cluster.this.name
 }
 
 output "cluster_name" {

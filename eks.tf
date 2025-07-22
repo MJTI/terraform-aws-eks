@@ -1,6 +1,4 @@
-data "aws_kms_key" "mprofile" {
-  key_id = "alias/eks/mprofile/us-east-1"
-}
+data "aws_caller_identity" "current" {}
 
 resource "aws_eks_cluster" "this" {
   name     = "${var.env}-${var.project}-eks-cluster"
@@ -21,9 +19,9 @@ resource "aws_eks_cluster" "this" {
 
   encryption_config {
     provider {
-      key_arn = data.aws_kms_key.mprofile.arn
+      key_arn = "arn:aws:kms:us-east-1:${data.aws_caller_identity.current.account_id}:alias/eks/mprofile/us-east-1"
     }
-    resources = [ "secrets" ]
+    resources = ["secrets"]
   }
 
 
