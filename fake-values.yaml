@@ -2,3 +2,4 @@ region = "us-east-1"
 env = "dev"
 project = "mprofile"
 aws_subnet_private_ids = ["fake-id-1", "fake-id-2"]
+cluster_admin_access = [ "cluster-admin" ]

@@ -1,13 +1,21 @@
 name: CI Terraform EKS Module
 
 on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - stage
   workflow_dispatch:
 
 jobs:
-  test_terraform_module:
+  CI_Terraform_EKS_Module:
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
+      contents: read
 
     steps:
       - name: Checkout Code
