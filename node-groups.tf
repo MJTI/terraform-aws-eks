@@ -1,4 +1,4 @@
-resource "aws_eks_node_group" "example" {
+resource "aws_eks_node_group" "small-nodes" {
   cluster_name    = aws_eks_cluster.this.name
   node_group_name = "general"
   node_role_arn   = aws_iam_role.eks-node.arn
