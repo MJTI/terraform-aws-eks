@@ -11,7 +11,7 @@ resource "aws_eks_access_policy_association" "cluster-admin-association" {
   count = length(var.cluster_admin_access)
 
   cluster_name  = aws_eks_cluster.this.name
-  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdmin"
+  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
   principal_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/${var.cluster_admin_access[count.index]}"
 
   access_scope {
